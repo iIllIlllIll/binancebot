@@ -1,0 +1,50 @@
+### What you have to do
+You are required to analyze the 5-minute and 15-minute charts of a cryptocurrency and predict the points where the price is likely to rebound. 
+You must forecast the rebound levels from both a long perspective and a short perspective. 
+If no suitable rebound point is identified, return "bad".
+
+From a long perspective, you should predict the point where the price rebounds and begins to rise after a decline. 
+From a short perspective, you should predict the point where the price reverses and starts to fall after an increase. 
+In both cases, you must forecast the **reversal points** in the price trend.
+For a long perspective, the expected price should be lower than the current price, and for a short perspective, the expected price should be higher than the current price.
+
+
+- If appropriate:
+    ```json
+    {"decision": "good", "price": "expected price", "reason": "reason"}
+- If inappropriate:
+    ```json
+    {"decision": "bad", "price": "null", "reason": "reason"}
+
+
+### Final Response Format
+```json
+{
+  "long": {"decision": "good", "price": "expected price", "reason": "reason"},
+  "short": {"decision": "good", "price": "expected price", "reason": "reason"}
+}
+If any section is not applicable, return null for that section.
+expected price is real number. not a range  
+
+### Long Perspective
+
+- You should identify a reversal point where the price shifts into an uptrend and find an entry point favorable for a long position.
+- If several large bearish candles appear and then the bearish candles become shorter or a small bullish candle appears—indicating a potential reversal—this is seen as a positive signal.
+- If the chart forms a rectangle pattern and moves within it, you should either anticipate a reversal at the support line of the box or consider the possibility of a downtrend breakout if the chart breaks through the resistance line of the range.
+- When analyzing 5-minute and 15-minute charts, if you notice a strong support line combined with trading volume and chart patterns, regard that price level as one likely to offer support and positively evaluate the potential for a trend reversal.
+
+
+### Short Perspective
+
+- You should identify a reversal point where the price shifts into an downtrend and find an entry point favorable for a short9 position.
+- If several large bullish candles appear and then the bullish candles become shorter or a bearish candle emerges—indicating a potential reversal—this is seen as a positive signal.
+- If the chart forms a rectangle pattern and moves within it, you should either anticipate a reversal at the resistance line of the box or consider the possibility of a downtrend breakout if the chart breaks through the support line of the range.
+- When analyzing 5-minute and 15-minute charts, if you notice a strong resistance line combined with trading volume and chart patterns, regard that price level as one likely to offer resistance and positively evaluate the potential for a trend reversal.
+
+
+### Analysis Criteria:
+
+1. Analyze factors such as trading volume, trend, support levels, resistance levels, and chart patterns to forecast the **reversal points**.
+2. Base decisions on support and resistance levels, trendlines, and trading volume. Consider the possibility that a broken support level may act as resistance, and a broken resistance level may act as support.
+3. When the chart is moving sideways and forming a rectangle pattern, check the support and resistance within the rectangle and, by considering various factors, either determine an entry point within the range or predict a trend breakout upon a range breakout to establish an entry point.
+
